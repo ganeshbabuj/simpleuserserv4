@@ -28,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/v1/account/login").permitAll()
                 .antMatchers("/v1/account/register").permitAll()
+                .antMatchers("/v1/account/test-activate").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated();
 
         // Add JWT Filter

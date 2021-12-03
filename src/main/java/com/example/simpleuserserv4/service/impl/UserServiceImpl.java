@@ -196,6 +196,9 @@ public class UserServiceImpl implements UserService {
             // Create Token
             String token = jwtProvider.createToken(userEntity.getUsername(), userEntity.getRoles());
 
+
+
+
             // Send Notification
             if (userEntity.getEmail() != null) {
                 notificationSender.send(new Notification(NotificationType.EMAIL, userEntity.getEmail(), "Account Created!"));
@@ -208,6 +211,8 @@ public class UserServiceImpl implements UserService {
             System.out.println("User Registration completed and response sent!");
             System.out.println("Notification will be sent asynchronously");
             System.out.println("-------------------------------------------------");
+
+
 
             return new RegistrationResponse(token, activationResponse);
 
